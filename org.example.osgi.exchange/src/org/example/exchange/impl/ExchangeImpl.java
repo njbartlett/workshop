@@ -13,12 +13,19 @@ import org.example.exchange.model.Side;
 
 import aQute.bnd.annotation.component.Activate;
 import aQute.bnd.annotation.component.Component;
+import aQute.bnd.annotation.metatype.Configurable;
+import aQute.bnd.annotation.metatype.Meta;
 
 import com.fasterxml.jackson.databind.MappingJsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Component
+@Component(designateFactory = ExchangeImpl.Config.class)
 public class ExchangeImpl implements Exchange {
+	
+	static interface Config {
+		@Meta.AD(required = false, deflt = "orders.json")
+		String storeFile();
+	}
 	
 	private final Map<String, Order> orders = Collections.synchronizedMap(new LinkedHashMap<String, Order>());
 	
@@ -26,8 +33,9 @@ public class ExchangeImpl implements Exchange {
 	private File jsonStore;
 	
 	@Activate
-	void activate() throws Exception {
-		jsonStore = new File("orders.json");
+	void activate(Map<String, Object> configProps) throws Exception {
+		Config config = Configurable.createConfigurable(Config.class, configProps);
+		jsonStore = new File(config.storeFile());
 		if (!jsonStore.isFile())
 			return;
 	

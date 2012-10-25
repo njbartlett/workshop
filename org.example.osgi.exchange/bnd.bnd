@@ -5,5 +5,6 @@
 	jackson-annotations,\
 	jackson-core,\
 	jackson-databind
-Private-Package: org.example.exchange.impl
+Private-Package: org.example.exchange.impl,\
+	aQute.bnd.annotation.metatype
 Service-Component: *
