@@ -1,0 +1,4 @@
+-buildpath: javax.inject,\
+	org.bndtools.inject,\
+	javax.ws.rs.jsr311-api,\
+	org.example.osgi.api;version=latest
