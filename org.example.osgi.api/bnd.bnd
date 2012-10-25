@@ -1,0 +1,3 @@
+-buildpath: biz.aQute.bnd.annotation
+Export-Package: org.example.exchange.api,\
+	org.example.exchange.model

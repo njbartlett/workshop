@@ -5,6 +5,9 @@ import java.util.Collection;
 import org.example.exchange.model.Order;
 import org.example.exchange.model.Side;
 
+import aQute.bnd.annotation.ProviderType;
+
+@ProviderType
 public interface Exchange {
 
 	/**
