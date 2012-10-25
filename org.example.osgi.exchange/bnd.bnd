@@ -1,0 +1,9 @@
+-buildpath: biz.aQute.bndlib,\
+	osgi.cmpn,\
+	osgi.core,\
+	org.example.osgi.api;version=latest,\
+	jackson-annotations,\
+	jackson-core,\
+	jackson-databind
+Private-Package: org.example.exchange.impl
+Service-Component: *
