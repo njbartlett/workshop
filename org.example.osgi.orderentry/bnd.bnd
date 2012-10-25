@@ -1,0 +1,8 @@
+-buildpath: osgi.core,\
+	osgi.cmpn,\
+	biz.aQute.bnd.annotation,\
+	junit.osgi,\
+	org.example.osgi.api;version=project
+
+Service-Component: *
+Private-Package: org.example.exchange.orderentry
